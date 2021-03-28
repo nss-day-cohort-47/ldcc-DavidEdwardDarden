@@ -425,7 +425,7 @@
       "name": "Hexagon"
     },
     {
-      "id":7,
+      "id": 7,
       "name": "Roll"
     }
   ],
@@ -435,6 +435,18 @@
       "email": "ld@ldcc.com",
       "admin": true,
       "id": 1
+    },
+    {
+      "name": "David",
+      "email": "d@d.com",
+      "isAdmin":false,
+      "id": 2
+    },
+    {
+      "name": "bob",
+      "email": "bob@bob.com",
+      "isAdmin": false,
+      "id": 3
     }
   ]
 }

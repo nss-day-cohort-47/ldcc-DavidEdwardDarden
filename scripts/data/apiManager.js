@@ -3,6 +3,7 @@ const apiURL = "http://localhost:8088";
 //// user functions
 let loggedInUser = {}
 
+
 export const getLoggedInUser = () => {
 	return { ...loggedInUser };
 }
@@ -68,6 +69,8 @@ export const getSnacks = () => {
 }
 
 export const getSingleSnack = (snackId) => {
-	return fetch(`${apiURL}/snacks/${snackId}`)
+	//original code>>>>> return fetch(`${apiURL}/snacks/${snackId}`)
+	//updated code vvvvvvvv
+	return fetch(`${apiURL}/snacks/${snackId}?_expand=type&_expand=shape&_expand=inFlavor&_expand=season`)
 	.then(response => response.json())
 }

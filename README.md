@@ -1,4 +1,5 @@
 ![LDCC](images/ldBracket.jpg)
+![LDCC](images/LDCC-ERD.jpg)
 # Little Debbie's Collector Club
 
 Each year, fans of _Little Debbie_ (LD) gather to tell stories about the snacks they have encountered over the last 12 months. The annual dues allow the members to enhance the very popular, very sophisticated _Little Debbie Collector Club_ (LDCC) website, which catalogs the details of their beloved LD snacks.
