@@ -39,7 +39,9 @@ applicationElement.addEventListener("click", event => {
 		//collect all the details into an object
 		const userObject = {
 			name: document.querySelector("input[name='registerName']").value,
-			email: document.querySelector("input[name='registerEmail']").value
+			email: document.querySelector("input[name='registerEmail']").value,
+			//I added code below... all new registered users should not have admin rights
+			isAdmin: false
 		}
 		registerUser(userObject)
 			.then(dbUserObj => {
