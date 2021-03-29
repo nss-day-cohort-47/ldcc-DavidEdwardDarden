@@ -13,11 +13,25 @@ export const NavBar = () => {
 			<button class="btn btn-info" type="button" id="allSnacks">All Snacks</button>
 		</li>
 		<li class="nav-item ms-1">
-			<select class="form-select form-select btn-info" aria-label="Select A Topping">
+			<select class="form-select form-select btn-info" id="ddTops4" aria-label="Select A Topping">
 				<option selected>Select A Topping</option>
-				<option value="1">One</option>
-				<option value="2">Two</option>
-				<option value="3">Three</option>
+				<option value="1">Turquoise Icing</option>
+				<option value="2">Llama Stamp</option>
+				<option value="3">Pastel Sprinkles</option>
+				<option value="4">White Icing</option>
+				<option value="5">Fudge Stripes</option>
+				<option value="6">Fudge Frosting</option>
+				<option value="7">Red and Green Sprinkles</option>
+				<option value="8">White Stripe</option>
+				<option value="9">Orange Icing</option>
+				<option value="10">Pumpkin Stamp</option>
+				<option value="11">Red Stripes</option>
+				<option value=12>Blue Star Sprinkles</option>
+				<option value="13">Carved Face</option>
+				<option value="14">Fudge</option>
+				<option value="15">Light Blue Stripes</option>
+				<option value="16">Purple Glitter</option>
+				
 			</select>
 		</li>
 		<li class="nav-item ms-1">
