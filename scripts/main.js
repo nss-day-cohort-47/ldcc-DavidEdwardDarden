@@ -1,5 +1,6 @@
 console.log('yum, yum, yum');
 
+//import { ddSelection } from "./snacks/DropdownSelectTopping.js";
 import { LoginForm } from "./auth/LoginForm.js";
 import { RegisterForm } from "./auth/RegisterForm.js";
 import { NavBar } from "./nav/NavBar.js";
@@ -8,10 +9,8 @@ import { SnackDetails } from "./snacks/SnackDetails.js";
 import { Footer } from "./nav/Footer.js";
 import {
 	logoutUser, setLoggedInUser, loginUser, registerUser, getLoggedInUser,
-	getSnacks, getSingleSnack
+	getSnacks, getSingleSnack, getToppings, useSnackCollection, getSnackToppingsRelationships
 } from "./data/apiManager.js";
-
-
 
 const applicationElement = document.querySelector("#ldsnacks");
 
@@ -67,9 +66,14 @@ applicationElement.addEventListener("click", event => {
 	if (event.target.id.startsWith("detailscake")) {
 		const snackId = event.target.id.split("__")[1];
 		getSingleSnack(snackId)
-			.then(response => {
-				showDetails(response);
+			.then(snackObj =>{
+				getToppings(snackId)
+				.then (snackToppings =>{
+				console.log(snackToppings);
+				snackToppings
+				showDetails(snackObj, snackToppings);
 			})
+		})
 	}
 })
 
@@ -80,10 +84,21 @@ applicationElement.addEventListener("click", event => {
 	}
 })
 
-const showDetails = (snackObj) => {
+const showDetails = (snackObj, snackToppings) => {
 	const listElement = document.querySelector("#mainContent");
-	listElement.innerHTML = SnackDetails(snackObj);
+	listElement.innerHTML = SnackDetails(snackObj, snackToppings);
 }
+//BELOW is a work in progress!!!!!!!!!!!!!!
+// applicationElement.addEventListener("click", event => {
+// 	if (event.target.id === "allSnacks") {
+// 		showSnackList();
+// 	}
+// })
+
+//let bob = dropdownSelectTopping()
+
+
+
 //end snack listeners
 
 const checkForUser = () => {
@@ -127,4 +142,100 @@ const startLDSnacks = () => {
 
 }
 
+// const displayFunction = () => {
+
+// }
+
+//EXPERIMENT IN PROGRESS
+// GetSelectedTextValue = () => {
+//         var ddlSelected = document.getElementById("ddTops4");
+//         //var selectedText = ddlSelected.options[ddlSelected.selectedIndex].innerHTML;
+//        // var selectedValue = ddlSelected.value;
+// 		return ddlSelected
+//         //alert("Selected Text: " + selectedText + " Value: " + selectedValue);
+//     }
+
+// let ddSelection44 = GetSelectedTextValue();
+
+
+//create an iterable array of all of the snacks
+// let alloftheSnacks = snackObject.forEach(element => {
+// 	let array42= [];
+// 	.push
+	
+// });
+
+
+
+// assign an iterable array of snacks to a variable
+//let alloftheSnacks = [1,2]//???????
+
+// if (event.target.id.startsWith("detailscake")) {
+// 	const snackId = event.target.id.split("__")[1];
+// 	getSingleSnack(snackId)
+// 		.then(snackObj =>{
+// 			getToppings(snackId)
+// 			.then (snackToppings =>{
+// 			console.log(snackToppings);
+// 			snackToppings
+// 			showDetails(snackObj, snackToppings);
+// 		})
+// 	})
+// }
+
+//Function that returns a snack if it contains the selected topping
+//Needs to be declared in main.js and figure out how to get the peramters put in correctly
+//and figure out how to put the list into a <div>
+const ddSelection = (dropdownSelection) => {
+const alloftheSnacks = useSnackCollection();
+getSnackToppingsRelationships()
+.then(relationships =>{
+	console.log(relationships)
+	const filteredRelationships= relationships.filter(rel => rel.toppingId === parseInt(dropdownSelection))
+const snacksArray = filteredRelationships.map(r => r.snack)
+	//filter all snacks against the filtered relationships array
+	const filteredSnacks = alloftheSnacks.filter(snack => filteredRelationships.some(rel => rel.snackId === snack.id))
+	// debugger
+	//pass that new filtered array into the snack list below
+	const listElement = document.querySelector("#mainContent")
+		listElement.innerHTML = SnackList(snacksArray);
+		//refactor section using a map on the filter array
+})
+
+
+for (const snackObject of alloftheSnacks) {
+        if(snackObject.toppings.includes(dropdownSelection)){
+            {
+               let applicableSnackListHtml =`${snackObject} <br>`;
+                return applicableSnackListHtml;
+            }
+        }
+    }
+}
+
 checkForUser();
+
+// when a selection is made it should return a list of snacks that 
+// contain the selected topping
+const chosenElement = document.querySelector("#ddTops4")
+chosenElement.addEventListener("change", (event) => {
+	if(event.target.id === "ddTops4") {
+		const chosenValue = (event.target.value);
+		ddSelection(chosenValue, allSnacks)
+	}
+})
+
+
+
+
+//EXPERIMENT IN PROGRESS
+// let ddSelect = applicationElement.addEventListener("click", event => {
+// 		if (event.target.id === "allSnacks") {
+// 	 		showSnackList();
+// 	 	}
+// 	 })
+
+//EXPERIMENT IN PROGRESS
+//ddSelection(ddSelection44, allSnacks)
+
+

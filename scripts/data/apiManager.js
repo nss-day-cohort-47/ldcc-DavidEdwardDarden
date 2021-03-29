@@ -74,3 +74,39 @@ export const getSingleSnack = (snackId) => {
 	return fetch(`${apiURL}/snacks/${snackId}?_expand=type&_expand=shape&_expand=inFlavor&_expand=season`)
 	.then(response => response.json())
 }
+
+export const getToppings = (snackId) => {
+	return fetch (`${apiURL}/snackToppings?snackId=${snackId}&_expand=topping&_expand=snack`)
+	.then(response => response.json())
+}
+
+export const getSnackToppingsRelationships = () => {
+	return fetch (`${apiURL}/snackToppings?_expand=topping&_expand=snack`)
+	.then(response => response.json())
+}
+
+// export const getToppings = () => {
+// 	return fetch(`${apiURL}/toppings`)
+// 		.then(response => response.json())
+// 		.then(toppingsparsedResponse => {
+// 			toppingsCollection = toppingsparsedResponse
+// 			return toppingsparsedResponse;
+// 		})
+// }
+
+// export const getSingleTopping = (toppingID) => {
+// return fetch(`${apiURL}/toppings/${toppingID}`)
+// .then(response => response.json())
+// }
+
+
+//got this from somewhere but... IDK
+// export const getToppings = () => {
+// 	return fetch(
+// 	  `${apiURL}/toppings`
+// 	).then((response) => response.json())
+// 	.then((parsedResponse) =>  {
+// 		toppingCollection = parsedResponse;
+// 		return parsedResponse;
+// 	})
+//   };

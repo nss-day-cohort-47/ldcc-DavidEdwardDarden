@@ -433,7 +433,7 @@
     {
       "name": "LD",
       "email": "ld@ldcc.com",
-      "admin": true,
+      "isAdmin": true,
       "id": 1
     },
     {
