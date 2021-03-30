@@ -183,9 +183,7 @@ const startLDSnacks = () => {
 // 	})
 // }
 
-//Function that returns a snack if it contains the selected topping
-//Needs to be declared in main.js and figure out how to get the peramters put in correctly
-//and figure out how to put the list into a <div>
+//dropdown function
 const ddSelection = (dropdownSelection) => {
 const alloftheSnacks = useSnackCollection();
 getSnackToppingsRelationships()
@@ -203,15 +201,15 @@ const snacksArray = filteredRelationships.map(r => r.snack)
 })
 
 
-for (const snackObject of alloftheSnacks) {
-        if(snackObject.toppings.includes(dropdownSelection)){
+ for (const snackObject of alloftheSnacks) {
+         if(snackObject.toppings.includes(dropdownSelection)){
             {
                let applicableSnackListHtml =`${snackObject} <br>`;
-                return applicableSnackListHtml;
-            }
-        }
-    }
-}
+                 return applicableSnackListHtml;
+             }
+         }
+     }
+ }
 
 checkForUser();
 
