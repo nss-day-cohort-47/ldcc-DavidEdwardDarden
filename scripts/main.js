@@ -88,16 +88,6 @@ const showDetails = (snackObj, snackToppings) => {
 	const listElement = document.querySelector("#mainContent");
 	listElement.innerHTML = SnackDetails(snackObj, snackToppings);
 }
-//BELOW is a work in progress!!!!!!!!!!!!!!
-// applicationElement.addEventListener("click", event => {
-// 	if (event.target.id === "allSnacks") {
-// 		showSnackList();
-// 	}
-// })
-
-//let bob = dropdownSelectTopping()
-
-
 
 //end snack listeners
 
@@ -142,47 +132,6 @@ const startLDSnacks = () => {
 
 }
 
-// const displayFunction = () => {
-
-// }
-
-//EXPERIMENT IN PROGRESS
-// GetSelectedTextValue = () => {
-//         var ddlSelected = document.getElementById("ddTops4");
-//         //var selectedText = ddlSelected.options[ddlSelected.selectedIndex].innerHTML;
-//        // var selectedValue = ddlSelected.value;
-// 		return ddlSelected
-//         //alert("Selected Text: " + selectedText + " Value: " + selectedValue);
-//     }
-
-// let ddSelection44 = GetSelectedTextValue();
-
-
-//create an iterable array of all of the snacks
-// let alloftheSnacks = snackObject.forEach(element => {
-// 	let array42= [];
-// 	.push
-	
-// });
-
-
-
-// assign an iterable array of snacks to a variable
-//let alloftheSnacks = [1,2]//???????
-
-// if (event.target.id.startsWith("detailscake")) {
-// 	const snackId = event.target.id.split("__")[1];
-// 	getSingleSnack(snackId)
-// 		.then(snackObj =>{
-// 			getToppings(snackId)
-// 			.then (snackToppings =>{
-// 			console.log(snackToppings);
-// 			snackToppings
-// 			showDetails(snackObj, snackToppings);
-// 		})
-// 	})
-// }
-
 //dropdown function
 const ddSelection = (dropdownSelection) => {
 const alloftheSnacks = useSnackCollection();
@@ -192,7 +141,7 @@ getSnackToppingsRelationships()
 	const filteredRelationships= relationships.filter(rel => rel.toppingId === parseInt(dropdownSelection))
 const snacksArray = filteredRelationships.map(r => r.snack)
 	//filter all snacks against the filtered relationships array
-	const filteredSnacks = alloftheSnacks.filter(snack => filteredRelationships.some(rel => rel.snackId === snack.id))
+	//const filteredSnacks = alloftheSnacks.filter(snack => filteredRelationships.some(rel => rel.snackId === snack.id))
 	// debugger
 	//pass that new filtered array into the snack list below
 	const listElement = document.querySelector("#mainContent")
@@ -222,18 +171,5 @@ chosenElement.addEventListener("change", (event) => {
 		ddSelection(chosenValue, allSnacks)
 	}
 })
-
-
-
-
-//EXPERIMENT IN PROGRESS
-// let ddSelect = applicationElement.addEventListener("click", event => {
-// 		if (event.target.id === "allSnacks") {
-// 	 		showSnackList();
-// 	 	}
-// 	 })
-
-//EXPERIMENT IN PROGRESS
-//ddSelection(ddSelection44, allSnacks)
 
 
